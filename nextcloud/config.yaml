@@ -1,0 +1,42 @@
+name: Nextcloud
+version: 26.0.1-9
+slug: nextcloud
+description: A safe home for all your data
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+init: false
+webui: http://[HOST]:[PORT:80]/
+watchdog: http://[HOST]:[PORT:80]/status.php
+apparmor: true
+ports:
+  80/tcp: null
+map:
+  - share:rw
+options:
+  config_dir: /share/nextcloud/config
+  data_dir: /share/nextcloud/data
+  domains: null
+  database_host: core-mariadb
+  #database_port: 3306
+  database_name: nextcloud
+  database_user: nextcloud
+  database_password: null
+  redis_host: local-redis
+  redis_port: 6379
+schema:
+  config_dir: "str?"
+  data_dir: "str?"
+  domains: "str?"
+  database_host: "str?"
+  #database_port: "port?"
+  database_name: str
+  database_user: str
+  database_password: password
+  redis_host: "str?"
+  redis_port: "port?"
+services:
+  - mysql:want
