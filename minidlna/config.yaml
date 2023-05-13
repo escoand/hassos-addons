@@ -1,0 +1,25 @@
+name: MiniDLNA
+version: 1.3.2-1
+slug: minidlna
+description: Simple media server software, with the aim of being fully compliant with DLNA/UPnP-AV clients
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+init: false
+webui: http://[HOST]:[PORT:8200]/
+watchdog: http://[HOST]:[PORT:8200]/
+apparmor: true
+host_network: true
+map:
+  - share
+options:
+  media_dirs: []
+schema:
+  media_dirs:
+    - str
+  friendly_name: str?
+  user: int?
+codenotary: passtschu@freenet.de

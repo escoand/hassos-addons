@@ -1,0 +1,9 @@
+build_from:
+  armhf: ghcr.io/home-assistant/armhf-base
+  armv7: ghcr.io/home-assistant/armv7-base
+  aarch64: ghcr.io/home-assistant/aarch64-base
+  amd64: ghcr.io/home-assistant/amd64-base
+  i386: ghcr.io/home-assistant/i386-base
+codenotary:
+  base_image: notary@home-assistant.io
+  signer: passtschu@freenet.de
