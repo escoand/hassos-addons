@@ -8,6 +8,10 @@
       "fileMatch": ["/build.yaml$"],
       "matchStrings": ["\\s*(aarch64|amd64|armhf|armv7|i386):\\s+(?<depName>.*?):(?<currentValue>.*?)\\n"],
       "datasourceTemplate": "docker"
+    },
+    {
+      "fileMatch": ["/Dockerfile$"],
+      "matchStrings": ["#\\s*renovate:\\s*datasource=(?<datasource>.*?) depName=(?<depName>.*?)\\sENV .*?_VERSION=(?<currentValue>.*)"]
     }
   ]
 }
