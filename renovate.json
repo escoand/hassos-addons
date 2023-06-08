@@ -7,11 +7,11 @@
     {
       "fileMatch": ["/build.yaml$"],
       "matchStrings": [
-        "\\s*aarch64:\\s+(?<currentValue>.*?)\\n",
-        "\\s*amd64:\\s+(?<currentValue>.*?)\\n",
-        "\\s*armhf:\\s+(?<currentValue>.*?)\\n",
-        "\\s*armv7:\\s+(?<currentValue>.*?)\\n",
-        "\\s*i386:\\s+(?<currentValue>.*?)\\n"
+        "\\s*aarch64:\\s+(?<depName>.*?)\\n",
+        "\\s*amd64:\\s+(?<depName>.*?)\\n",
+        "\\s*armhf:\\s+(?<depName>.*?)\\n",
+        "\\s*armv7:\\s+(?<depName>.*?)\\n",
+        "\\s*i386:\\s+(?<depName>.*?)\\n"
       ],
       "datasourceTemplate": "docker"
     }
