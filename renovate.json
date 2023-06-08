@@ -2,5 +2,18 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base"
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["/build.yaml$"],
+      "matchStrings": [
+        "\\s*aarch64:\\s+(?<currentValue>.*?)\\n",
+        "\\s*amd64:\\s+(?<currentValue>.*?)\\n",
+        "\\s*armhf:\\s+(?<currentValue>.*?)\\n",
+        "\\s*armv7:\\s+(?<currentValue>.*?)\\n",
+        "\\s*i386:\\s+(?<currentValue>.*?)\\n"
+      ],
+      "datasourceTemplate": "docker"
+    }
   ]
 }
