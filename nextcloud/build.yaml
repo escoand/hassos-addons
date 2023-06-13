@@ -1,5 +1,5 @@
 build_from:
-  armhf: arm32v6/nextcloud:26.0.2
+  armhf: arm32v6/nextcloud:27.0.0-fpm-alpine
   armv7: arm32v7/nextcloud:26.0.2
   aarch64: arm64v8/nextcloud:26.0.2
   amd64: amd64/nextcloud:26.0.2
