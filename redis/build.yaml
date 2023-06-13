@@ -2,5 +2,5 @@ build_from:
   armhf: arm32v6/redis:7.0.11-alpine
   armv7: arm32v7/redis:7.0.11-alpine
   aarch64: arm64v8/redis:7.0.11-alpine
-  amd64: amd64/redis:7.0.11-alpine
+  amd64: amd64/redis:7.0.11
   i386: i386/redis:7.0.11-alpine
