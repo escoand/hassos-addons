@@ -1,9 +1,8 @@
 build_from:
-  armhf: arm32v6/nextcloud:27.0.0-apache
-  armv7: arm32v7/nextcloud:27.0.0-apache
-  aarch64: arm64v8/nextcloud:27.0.0-apache
+  armhf: docker.io/arm32v6/nextcloud:27.0.0
+  armv7: docker.io/arm32v7/nextcloud:27.0.0
+  aarch64: docker.io/arm64v8/nextcloud:27.0.0
   amd64: docker.io/amd64/nextcloud:27.0.0
   i386: docker.io/i386/nextcloud:26.0.2
 codenotary:
-  base_image: passtschu@freenet.de
   signer: passtschu@freenet.de
