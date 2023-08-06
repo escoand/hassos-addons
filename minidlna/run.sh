@@ -2,11 +2,12 @@
 
 set -e
 
-FRIENDLY_NAME=$(bashio::config 'friendly_name')
-if [ "$FRIENDLY_NAME" != null ]; then
-  sed -i 's/^friendly_name/#&/' /etc/minidlna.conf
-  echo "friendly_name = $FRIENDLY_NAME" >> /etc/minidlna.conf
-fi
+FRIENDLY_NAME=$(
+  wget -O- --header "Authorization: Bearer $SUPERVISOR_TOKEN" http://supervisor/info |
+  jq -r .data.hostname
+)
+sed -i 's/^friendly_name/#&/' /etc/minidlna.conf
+echo "friendly_name = $FRIENDLY_NAME" >> /etc/minidlna.conf
 
 MEDIA_DIRS=$(bashio::config 'media_dirs')
 if [ "$MEDIA_DIRS" != null ]; then

@@ -1,5 +1,5 @@
 name: MiniDLNA
-version: 1.3.2-1
+version: 1.3.2-2
 slug: minidlna
 description: Simple media server software, with the aim of being fully compliant with DLNA/UPnP-AV clients
 arch:
@@ -11,6 +11,7 @@ arch:
 init: false
 webui: http://[HOST]:[PORT:8200]/
 watchdog: http://[HOST]:[PORT:8200]/
+hassio_api: true
 apparmor: true
 host_network: true
 map:
@@ -20,6 +21,5 @@ options:
 schema:
   media_dirs:
     - match(^([APV],)?/share/.*)
-  friendly_name: str?
   user: int?
 codenotary: passtschu@freenet.de
