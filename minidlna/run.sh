@@ -3,7 +3,7 @@
 set -e
 
 FRIENDLY_NAME=$(
-  wget -O- --header "Authorization: Bearer $SUPERVISOR_TOKEN" http://supervisor/info |
+  wget -qO- --header "Authorization: Bearer $SUPERVISOR_TOKEN" http://supervisor/info |
   jq -r .data.hostname
 )
 sed -i 's/^friendly_name/#&/' /etc/minidlna.conf
@@ -15,7 +15,13 @@ if [ "$MEDIA_DIRS" != null ]; then
   echo "$MEDIA_DIRS" | sed 's/^/media_dir = /' >> /etc/minidlna.conf
 fi
 
-USERID=$(bashio::config 'user') #|
+ROOT_CONTAINER=$(bashio::config 'root_container')
+if [ "$ROOT_CONTAINER" != null ]; then
+  sed -i 's/^root_container/#&/' /etc/minidlna.conf
+  echo "root_container = $ROOT_CONTAINER" >> /etc/minidlna.conf
+fi
+
+USERID=$(bashio::config 'user')
 if [ "$USERID" != null ]; then
   sed -i 's/^user/#&/' /etc/minidlna.conf
   echo "user = $USERID" >> /etc/minidlna.conf
