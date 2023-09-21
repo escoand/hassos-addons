@@ -1,5 +1,5 @@
 name: Samba
-version: 4.18.5-5
+version: 4.18.5-6
 slug: samba
 description: Share paths as read only
 arch:
@@ -17,10 +17,18 @@ ports:
   139/tcp: 139
   445/tcp: 445
 map:
-  - share
+  - share:rw
 options:
+  users: []
   shares: []
 schema:
+  user: str?
+  users:
+    - username: str
+      password: password
   shares:
-    - match(^[A-Za-z0-9]+ /share/.+$)?
+    - name: str
+      path: match(^/share/.*$)
+      users: str?
+      writable: bool?
 codenotary: passtschu@freenet.de
