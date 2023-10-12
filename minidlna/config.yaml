@@ -9,11 +9,13 @@ arch:
   - amd64
   - i386
 init: false
-webui: http://[HOST]:8200/
-watchdog: http://[HOST]:8200/
+webui: http://[HOST]:[PORT:8200]/
+watchdog: http://[HOST]:[PORT:8200]/
 hassio_api: true
 apparmor: true
 host_network: true
+ports:
+  8200/tcp: 8200
 map:
   - share
 options:
