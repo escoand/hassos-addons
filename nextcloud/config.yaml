@@ -1,4 +1,4 @@
-name: Nextcloud
+": Nextcloud
 version: 27.1.2-2
 slug: nextcloud
 description: A safe home for all your data
@@ -17,8 +17,8 @@ ports:
 map:
   - share:rw
 environment:
-  NEXTCLOUD_INIT_HTACCESS: 1
-  NEXTCLOUD_UPDATE: 1
+  NEXTCLOUD_INIT_HTACCESS: "1"
+  NEXTCLOUD_UPDATE: "1"
 options:
   apps_dir: /share/nextcloud/apps
   config_dir: /share/nextcloud/config
