@@ -5,4 +5,4 @@ build_from:
   amd64: docker.io/amd64/redis:7.2.1-alpine
   i386: docker.io/i386/redis:7.2.1-alpine
 codenotary:
-  signer: passtschu@freenet.de
+  signer: escoand@users.noreply.github.com

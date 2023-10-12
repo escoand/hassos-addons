@@ -11,3 +11,4 @@ arch:
 apparmor: true
 init: false
 watchdog: tcp://[HOST]:6379
+codenotary: escoand@users.noreply.github.com
