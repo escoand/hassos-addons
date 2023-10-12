@@ -16,6 +16,9 @@ ports:
   80/tcp: null
 map:
   - share:rw
+environment:
+  NEXTCLOUD_INIT_HTACCESS: 1
+  NEXTCLOUD_UPDATE: 1
 options:
   apps_dir: /share/nextcloud/apps
   config_dir: /share/nextcloud/config
