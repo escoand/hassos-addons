@@ -6,4 +6,4 @@ build_from:
   i386: ghcr.io/home-assistant/i386-base:3.18
 codenotary:
   base_image: notary@home-assistant.io
-  signer: passtschu@freenet.de
+  signer: escoand@noreply.users.github.com
