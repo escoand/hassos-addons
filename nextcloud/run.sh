@@ -5,8 +5,6 @@ set -e
 
 CONFIG_PATH=/data/options.json
 
-export NEXTCLOUD_UPGRADE=1
-
 # environment variables
 export NEXTCLOUD_TRUSTED_DOMAINS=$(jq -r '.domains // empty' $CONFIG_PATH)
 export MYSQL_DATABASE=$(jq -r '.database_name // empty' $CONFIG_PATH)
