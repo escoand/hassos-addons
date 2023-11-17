@@ -15,6 +15,8 @@ echo "load printers = no"
 echo "disable spoolss = yes"
 echo "wins support = no"
 echo "map to guest = bad user"
+echo "guest account = $USER_"
+echo "guest ok = yes"
 } > /etc/samba/smb.conf
 
 CNT=0
@@ -25,8 +27,6 @@ while $(bashio::config.exists "shares[$CNT]"); do
   WRITABLE=$(bashio::config "shares[$CNT].writable" no)
 
   echo "[$NAME]"
-  echo "force user = $USER_"
-  echo "force group = $USER_"
   echo "browseable = yes"
   echo "path = $PATH_"
   echo "writable = $WRITABLE"
