@@ -22,7 +22,7 @@ REDIS_HOST_PORT=$(jq -r '.redis_port // empty' $CONFIG_PATH)
 [ -n "$REDIS_HOST_PORT" ] && export REDIS_HOST_PORT
 
 # cronjobs
-jq -r '.cronjobs // empty | .[]' $CONFIG_PATH >> /var/spool/cron/crontabs/www-data
+jq -r '.cronjobs // empty | .[]' $CONFIG_PATH >>/var/spool/cron/crontabs/www-data
 
 # directories
 NEXTCLOUD_APPS_DIR=$(jq -r '.apps_dir // empty' $CONFIG_PATH)
@@ -43,4 +43,4 @@ fi
 
 # start
 /cron.sh &
-exec sh /entrypoint.sh "$@"
+exec /entrypoint.sh "$@"
