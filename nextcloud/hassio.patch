@@ -1,11 +1,13 @@
---- entrypoint.sh	2023-05-11 08:01:00.718691962 +0200
-+++ entrypoint.patch.sh	2023-05-11 08:03:05.885285484 +0200
-@@ -135,7 +135,7 @@
- 
+--- entrypoint.sh	2023-12-13 14:12:00.138502700 +0100
++++ entrypoint.patch.sh	2023-12-13 14:12:54.212276000 +0100
+@@ -173,7 +173,9 @@
+
              rsync $rsync_options --delete --exclude-from=/upgrade.exclude /usr/src/nextcloud/ /var/www/html/
              for dir in config data custom_apps themes; do
 -                if [ ! -d "/var/www/html/$dir" ] || directory_empty "/var/www/html/$dir"; then
-+                if { [ ! -d "/var/www/html/$dir" ] && [ ! -L "/var/www/html/$dir" ]; } || directory_empty "/var/www/html/$dir"; then
++                if [ -L "/var/www/html/$dir" ] && directory_empty "/var/www/html/$dir"; then
++                    rsync $rsync_options "/usr/src/nextcloud/$dir/" "/var/www/html/$dir/"
++                elif [ ! -d "/var/www/html/$dir" ] || directory_empty "/var/www/html/$dir"; then
                      rsync $rsync_options --include "/$dir/" --exclude '/*' /usr/src/nextcloud/ /var/www/html/
                  fi
              done
