@@ -15,7 +15,7 @@ apparmor: true
 ports:
   80/tcp: null
 map:
-  - app_config:rw
+  - addon_config:rw
   - share:rw
 options:
   apps_dir: /share/nextcloud/apps
