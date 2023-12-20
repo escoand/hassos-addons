@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2155
 
-set -e
+set -euo pipefail
 
 CONFIG_PATH=/data/options.json
 SENSOR=sensor.restic

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2155
 
-set -e
+set -euo pipefail
 
 CONFIG_PATH=/data/options.json
 
@@ -30,15 +30,19 @@ if [ -n "$NEXTCLOUD_APPS_DIR" ] && [ ! -e /var/www/html/custom_apps ]; then
   ln -s "$NEXTCLOUD_APPS_DIR" /var/www/html/custom_apps
   chown -h www-data:www-data /var/www/html/custom_apps
 fi
-NEXTCLOUD_CONFIG_DIR=$(jq -r '.config_dir // empty' $CONFIG_PATH)
-if [ -n "$NEXTCLOUD_CONFIG_DIR" ] && [ ! -e /var/www/html/config ]; then
-  ln -s "$NEXTCLOUD_CONFIG_DIR" /var/www/html/config
-  chown -h www-data:www-data /var/www/html/config
-fi
 NEXTCLOUD_DATA_DIR=$(jq -r '.data_dir // empty' $CONFIG_PATH)
 if [ -n "$NEXTCLOUD_DATA_DIR" ] && [ ! -e /var/www/html/data ]; then
   ln -s "$NEXTCLOUD_DATA_DIR" /var/www/html/data
   chown -h www-data:www-data /var/www/html/data
+fi
+
+# config directory
+ln -s /addon_config /var/www/html/config
+chown -h www-data:www-data /var/www/html/config
+# migrate config dir
+NEXTCLOUD_CONFIG_DIR=$(jq -r '.config_dir // empty' $CONFIG_PATH)
+if [ -n "$NEXTCLOUD_CONFIG_DIR" ] && ls "$NEXTCLOUD_CONFIG_DIR"/*; then
+  rsync --remove-source-files "$NEXTCLOUD_CONFIG_DIR"/* /addon_config/
 fi
 
 # start

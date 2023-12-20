@@ -13,6 +13,7 @@ echo "friendly_name = $FRIENDLY_NAME" >> /etc/minidlna.conf
 MEDIA_DIRS=$(bashio::config 'media_dirs')
 if [ "$MEDIA_DIRS" != null ]; then
   sed -i 's/^media_dir/#&/' /etc/minidlna.conf
+  # shellcheck disable=SC2001
   echo "$MEDIA_DIRS" | sed 's/^/media_dir = /' >> /etc/minidlna.conf
 fi
 

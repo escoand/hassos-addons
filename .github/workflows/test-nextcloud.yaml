@@ -1,9 +1,11 @@
-on: [push]
+on: push
 
 jobs:
   test-nextcloud:
+    name: Test Nextcloud
     runs-on: ubuntu-latest
     steps:
+      # setup
       - name: Install deps
         run: |
           sudo apt-get update -qqy &&
@@ -17,10 +19,12 @@ jobs:
             --tag nc-image \
             --build-arg BUILD_FROM=$IMAGE \
             nextcloud
+      # initial
       - name: Prepare test data
         run: |
           podman volume create nc-apps &&
           podman volume create nc-config &&
+          podman volume create nc-config-old &&
           podman volume create nc-data &&
           echo '{"apps_dir":"/data/apps","config_dir":"/data/config","data_dir":"/data/data"}' > nc-options.json
       - name: Initial startup
@@ -30,7 +34,8 @@ jobs:
             -p 8080:80 \
             --name nc-container \
             -v nc-apps:/data/apps:rw \
-            -v nc-config:/data/config:rw \
+            -v nc-config:/addon_config:rw \
+            -v nc-config-old:/data/config:rw \
             -v nc-data:/data/data:rw \
             -v $PWD/nc-options.json:/data/options.json:ro \
             -e NEXTCLOUD_ADMIN_USER=admin \
@@ -42,19 +47,23 @@ jobs:
       - name: Verify initial startup
         run: |
           podman run \
-            -v nc-apps:/data/apps:ro \
-            -v nc-config:/data/config:ro \
-            -v nc-data:/data/data:ro \
+            -v nc-config:/addon_config:ro \
             alpine \
-              ls -l /data/config/config.php /data/config/config.sample.php
+              ls -l /addon_config/config.php /addon_config/config.sample.php &&
+          podman run \
+            -v nc-config-old:/data/config:ro \
+            alpine \
+              sh -c '! ls -l /data/config/*'
+      # persistent data
       - name: Prepare persistent test data
         run: |
           podman run \
             -v nc-apps:/data/apps:rw \
-            -v nc-config:/data/config:rw \
+            -v nc-config:/addon_config:rw \
+            -v nc-config-old:/data/config:rw \
             -v nc-data:/data/data:rw \
             alpine \
-              touch /data/apps/test-file /data/config/test-file /data/data/test-file
+              touch /data/apps/test-file /data/config/old-file /data/data/test-file /addon_config/test-file
       - name: Persistent startup
         timeout-minutes: 1
         run: |
@@ -62,7 +71,8 @@ jobs:
             -p 8080:80 \
             --name nc-container \
             -v nc-apps:/data/apps:rw \
-            -v nc-config:/data/config:rw \
+            -v nc-config:/addon_config:rw \
+            -v nc-config-old:/data/config:rw \
             -v nc-data:/data/data:rw \
             -v $PWD/nc-options.json:/data/options.json:ro \
             nc-image &
@@ -76,7 +86,11 @@ jobs:
             grep -F ".htaccess has been updated" &&
           podman run \
             -v nc-apps:/data/apps:ro \
-            -v nc-config:/data/config:ro \
+            -v nc-config:/addon_config:ro \
             -v nc-data:/data/data:ro \
             alpine \
-              ls -l /data/apps/test-file /data/config/test-file /data/data/test-file
+              ls -l /data/apps/test-file /data/data/test-file /addon_config/test-file /addon_config/old-file &&
+          podman run \
+            -v nc-config-old:/data/config:ro \
+            alpine \
+              sh -c '! ls -l /data/config/*'
