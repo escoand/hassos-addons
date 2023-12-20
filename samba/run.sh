@@ -1,4 +1,5 @@
 #!/usr/bin/with-contenv bashio
+# shellcheck shell=bash
 
 set -e
 
@@ -20,7 +21,7 @@ echo "guest ok = yes"
 } > /etc/samba/smb.conf
 
 CNT=0
-while $(bashio::config.exists "shares[$CNT]"); do
+while bashio::config.exists "shares[$CNT]"; do
   NAME=$(bashio::config "shares[$CNT].name")
   PATH_=$(bashio::config "shares[$CNT].path")
   USERS=$(bashio::config "shares[$CNT].users")
@@ -40,7 +41,7 @@ while $(bashio::config.exists "shares[$CNT]"); do
 done >> /etc/samba/smb.conf
 
 CNT=0
-while $(bashio::config.exists "users[$CNT]"); do
+while bashio::config.exists "users[$CNT]"; do
   USERNAME=$(bashio::config "users[$CNT].username")
   PASSWD=$(bashio::config "users[$CNT].password")
 
