@@ -37,12 +37,12 @@ if [ -n "$NEXTCLOUD_DATA_DIR" ] && [ ! -e /var/www/html/data ]; then
 fi
 
 # config directory
-ln -s /addon_config /var/www/html/config
+ln -s /config /var/www/html/config
 chown -h www-data:www-data /var/www/html/config
 # migrate config dir
 NEXTCLOUD_CONFIG_DIR=$(jq -r '.config_dir // empty' $CONFIG_PATH)
-if [ -n "$NEXTCLOUD_CONFIG_DIR" ] && ls "$NEXTCLOUD_CONFIG_DIR"/*; then
-  rsync --remove-source-files "$NEXTCLOUD_CONFIG_DIR"/* /addon_config/
+if [ -n "$NEXTCLOUD_CONFIG_DIR" ] && ls "$NEXTCLOUD_CONFIG_DIR"/* >/dev/null 2>&1; then
+  rsync --remove-source-files "$NEXTCLOUD_CONFIG_DIR"/* /config/
 fi
 
 # start
