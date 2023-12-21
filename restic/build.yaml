@@ -1,6 +1,6 @@
 build_from:
   armv7: docker.io/mazzolino/restic:1.7.0
-  aarch64: mazzolino/restic:1.7.0
-  amd64: mazzolino/restic:1.7.0
+  aarch64: mazzolino/restic:1.7.1
+  amd64: mazzolino/restic:1.7.1
 codenotary:
   signer: escoand@users.noreply.github.com
