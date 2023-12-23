@@ -12,9 +12,9 @@
 --- upgrade.exclude	2023-05-11 21:16:53.782781713 +0200
 +++ upgrade.patch.exclude	2023-05-11 21:18:25.467621053 +0200
 @@ -1,4 +1,7 @@
-+/apps
 +/config
  /config/
++/custom_apps
 +/data
  /data/
  /custom_apps/
