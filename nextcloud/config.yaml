@@ -1,4 +1,4 @@
-": Nextcloud
+name: Nextcloud
 version: 27.1.2-2
 slug: nextcloud
 description: A safe home for all your data
