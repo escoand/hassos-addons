@@ -1,5 +1,5 @@
 name: Nextcloud
-version: 28.0.0-6
+version: 28.0.1-0
 slug: nextcloud
 description: A safe home for all your data
 arch:
@@ -10,7 +10,7 @@ arch:
   - i386
 init: false
 webui: http://[HOST]:[PORT:80]/
-watchdog: http://[HOST]:[PORT:80]/status.php
+#watchdog: http://[HOST]:[PORT:80]/status.php
 apparmor: true
 ports:
   80/tcp: null
