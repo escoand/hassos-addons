@@ -8,7 +8,7 @@
       "fileMatch": ["/build.yaml$"],
       "matchStrings": ["\\s*(aarch64|amd64|armhf|armv7|i386):\\s+(?<depName>.*?):(?<currentValue>.*?)\\n"],
       "datasourceTemplate": "docker",
-      "versioningTemplate": "semver"
+      "versioningTemplate": "docker"
     },
     {
       "fileMatch": ["/Dockerfile$"],
