@@ -6,13 +6,20 @@ set -e
 CONFIG_PATH=/data/options.json
 
 # environment variables
-export NEXTCLOUD_TRUSTED_DOMAINS=$(jq -r '.domains // empty' $CONFIG_PATH)
-export MYSQL_DATABASE=$(jq -r '.database_name // empty' $CONFIG_PATH)
-export MYSQL_HOST=$(jq -r '.database_host // empty' $CONFIG_PATH)
-export MYSQL_PASSWORD=$(jq -r '.database_password // empty' $CONFIG_PATH)
-export MYSQL_USER=$(jq -r '.database_user // empty' $CONFIG_PATH)
-export REDIS_HOST=$(jq -r '.redis_host // empty' $CONFIG_PATH)
-export REDIS_HOST_PORT=$(jq -r '.redis_port // empty' $CONFIG_PATH)
+NEXTCLOUD_TRUSTED_DOMAINS=$(jq -r '.domains // empty' $CONFIG_PATH)
+[ -n "$NEXTCLOUD_TRUSTED_DOMAINS" ] && export NEXTCLOUD_TRUSTED_DOMAINS
+MYSQL_DATABASE=$(jq -r '.database_name // empty' $CONFIG_PATH)
+[ -n "$MYSQL_DATABASE" ] && export MYSQL_DATABASE
+MYSQL_HOST=$(jq -r '.database_host // empty' $CONFIG_PATH)
+[ -n "$MYSQL_HOST" ] && export MYSQL_HOST
+MYSQL_PASSWORD=$(jq -r '.database_password // empty' $CONFIG_PATH)
+[ -n "$MYSQL_PASSWORD" ] && export MYSQL_PASSWORD
+MYSQL_USER=$(jq -r '.database_user // empty' $CONFIG_PATH)
+[ -n "$MYSQL_USER" ] && export MYSQL_USER
+REDIS_HOST=$(jq -r '.redis_host // empty' $CONFIG_PATH)
+[ -n "$REDIS_HOST" ] && export REDIS_HOST
+REDIS_HOST_PORT=$(jq -r '.redis_port // empty' $CONFIG_PATH)
+[ -n "$REDIS_HOST_PORT" ] && export REDIS_HOST_PORT
 
 # cronjobs
 jq -r '.cronjobs // empty | .[]' $CONFIG_PATH >> /var/spool/cron/crontabs/www-data

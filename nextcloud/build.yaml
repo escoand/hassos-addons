@@ -1,8 +1,8 @@
 build_from:
-  armhf: docker.io/arm32v6/nextcloud:27.1.4
-  armv7: docker.io/arm32v7/nextcloud:27.1.4
-  aarch64: docker.io/arm64v8/nextcloud:27.1.4
-  amd64: docker.io/amd64/nextcloud:27.1.4
-  i386: docker.io/i386/nextcloud:27.1.4
+  armhf: docker.io/arm32v6/nextcloud:28.0.0
+  armv7: docker.io/arm32v7/nextcloud:28.0.0
+  aarch64: docker.io/arm64v8/nextcloud:28.0.0
+  amd64: docker.io/amd64/nextcloud:28.0.0
+  i386: docker.io/i386/nextcloud:28.0.0
 codenotary:
   signer: escoand@users.noreply.github.com
