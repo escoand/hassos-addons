@@ -10,7 +10,7 @@ arch:
   - i386
 init: false
 webui: http://[HOST]:[PORT:80]/
-tcp: http://[HOST]:[PORT:80]
+tcp: tcp://[HOST]:[PORT:80]
 apparmor: true
 ports:
   80/tcp: null
