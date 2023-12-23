@@ -13,6 +13,8 @@ echo "security = user"
 echo "ntlm auth = yes"
 echo "load printers = no"
 echo "disable spoolss = yes"
+echo "wins support = no"
+echo "map to guest = bad user"
 } > /etc/samba/smb.conf
 
 CNT=0
