@@ -2,7 +2,7 @@ ARG BUILD_FROM
 FROM $BUILD_FROM 
 
 # renovate: datasource=repology depName=alpine_3_19/samba-server versioning=loose
-ENV SAMBA_VERSION=4.18.8-r0
+ENV SAMBA_VERSION=4.18.9-r0
 
 RUN apk --no-cache add samba-server=${SAMBA_VERSION} samba-common-tools
 
