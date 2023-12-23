@@ -8,9 +8,9 @@ RUN apt-get update && apt-get install -y \
 COPY hassio.patch /
 RUN patch -d/ -p0 -i /hassio.patch && rm /hassio.patch
 
-COPY --chmod=755 run.sh         /
-COPY --chmod=755 pre-install.sh /docker-entrypoint-hooks.d/pre-installation/
-COPY --chmod=755 pre-start.sh   /docker-entrypoint-hooks.d/before-starting/
+COPY run.sh         /
+COPY pre-install.sh /docker-entrypoint-hooks.d/pre-installation/
+COPY pre-start.sh   /docker-entrypoint-hooks.d/before-starting/
 
 ENTRYPOINT [ "/run.sh" ]
 CMD [ "apache2-foreground" ]
