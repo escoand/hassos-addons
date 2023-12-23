@@ -1,5 +1,5 @@
 name: Nextcloud
-version: 28.0.1-1
+version: 28.0.1-2
 slug: nextcloud
 description: A safe home for all your data
 arch:
@@ -14,6 +14,7 @@ tcp: tcp://[HOST]:[PORT:80]
 apparmor: true
 ports:
   80/tcp: null
+  9000/tcp: null
 map:
   - addon_config:rw
   - share:rw
@@ -22,11 +23,11 @@ options:
   config_dir: /share/nextcloud/config
   data_dir: /share/nextcloud/data
   domains: ""
-  database_host: ""
+  database_host: core-mariadb
   database_name: ""
   database_user: ""
   database_password: ""
-  redis_host: ""
+  redis_host: 12fdc862-redis
 schema:
   apps_dir: str
   config_dir: str

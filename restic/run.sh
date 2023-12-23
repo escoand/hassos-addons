@@ -16,6 +16,11 @@ export RESTIC_FORGET_ARGS=$(jq -r '.restic_forget_args // empty' $CONFIG_PATH)
 # b2 environment
 export B2_ACCOUNT_ID=$(jq -r '.b2_account_id // empty' $CONFIG_PATH)
 export B2_ACCOUNT_KEY=$(jq -r '.b2_account_key // empty' $CONFIG_PATH)
+# Home Assistant events
+export PRE_COMMANDS="curl -sS -XPOST -H 'Authorization: Bearer $SUPERVISOR_TOKEN' http://supervisor/core/api/events/restic_backup_started"
+export POST_COMMANDS_SUCCESS="curl -sS -XPOST --header 'Authorization: Bearer $SUPERVISOR_TOKEN' http://supervisor/core/api/events/restic_backup_success"
+export POST_COMMANDS_FAILURE="curl -sS -XPOST --header 'Authorization: Bearer $SUPERVISOR_TOKEN' http://supervisor/core/api/events/restic_backup_failure"
+export POST_COMMANDS_INCOMPLETE="curl -sS -XPOST --header 'Authorization: Bearer $SUPERVISOR_TOKEN' http://supervisor/core/api/events/restic_backup_incomplete"
 
 # gather statistics
 while true; do

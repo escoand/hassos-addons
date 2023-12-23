@@ -1,0 +1,8 @@
+- id: maintenance_on
+  execute-command: /maintenance-on.sh
+  command-working-directory: /var/www/html
+  include-command-output-in-response: true
+- id: maintenance_off
+  execute-command: /maintenance-off.sh
+  command-working-directory: /var/www/html
+  include-command-output-in-response: true

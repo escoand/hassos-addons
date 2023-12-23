@@ -69,6 +69,7 @@ jobs:
         run: |
           podman run \
             -p 8080:80 \
+            -p 9000:9000 \
             --name nc-container \
             -v nc-apps:/data/apps:rw \
             -v nc-config:/config:rw \
@@ -77,7 +78,6 @@ jobs:
             -v $PWD/nc-options.json:/data/options.json:ro \
             nc-image &
           until curl -sv http://127.0.0.1:8080/login 2>&1 | grep -q "HTTP/1.1 200 OK"; do sleep 1; echo "# retry"; done
-          podman stop nc-container
       - name: Verify persistent startup
         run: |
           podman logs nc-container 2>&1 |
@@ -94,3 +94,16 @@ jobs:
             -v nc-config-old:/data/config:ro \
             alpine \
               sh -c '! ls -l /data/config/*'
+      # maintenance mode
+      - name: Activate maintenance mode
+        run: |
+          curl -fsv http://127.0.0.1:9000/hooks/maintenance_on &&
+          until curl -sv http://127.0.0.1:8080/login 2>&1 | grep -q "HTTP/1.1 503 "; do sleep 1; echo "# retry"; done
+      - name: Deactivate maintenance mode
+        run: |
+          curl -fsv http://127.0.0.1:9000/hooks/maintenance_off &&
+          until curl -sv http://127.0.0.1:8080/login 2>&1 | grep -q "HTTP/1.1 200 OK"; do sleep 1; echo "# retry"; done
+      # collect logs
+      - name: Collect logs
+        if: failure()
+        run: podman logs nc-container

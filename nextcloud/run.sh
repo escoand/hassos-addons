@@ -46,5 +46,6 @@ if [ -n "$NEXTCLOUD_CONFIG_DIR" ] && ls "$NEXTCLOUD_CONFIG_DIR"/* >/dev/null 2>&
 fi
 
 # start
+sudo -u www-data webhook -hooks /hooks.yaml -verbose &
 /cron.sh &
 exec /entrypoint.sh "$@"
