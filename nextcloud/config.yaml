@@ -1,5 +1,5 @@
 name: Nextcloud
-version: 26.0.1-12
+version: 26.0.1-13
 slug: nextcloud
 description: A safe home for all your data
 arch:
@@ -20,25 +20,26 @@ options:
   apps_dir: /share/nextcloud/apps
   config_dir: /share/nextcloud/config
   data_dir: /share/nextcloud/data
-  domains: null
-  database_host: core-mariadb
-  #database_port: 3306
-  database_name: nextcloud
-  database_user: nextcloud
-  database_password: null
-  redis_host: local-redis
-  redis_port: 6379
+  domains: ""
+  database_host: ""
+  database_name: ""
+  database_user: ""
+  database_password: ""
+  redis_host: ""
 schema:
-  apps_dir: "str?"
-  config_dir: "str?"
-  data_dir: "str?"
-  domains: "str?"
-  database_host: "str?"
-  #database_port: "port?"
-  database_name: str
-  database_user: str
-  database_password: password
-  redis_host: "str?"
-  redis_port: "port?"
+  apps_dir: str
+  config_dir: str
+  data_dir: str
+  domains: str?
+  database_host: str?
+  #database_port: port?
+  database_name: str?
+  database_user: str?
+  database_password: password?
+  redis_host: str?
+  redis_port: port?
+  cronjobs:
+    - match(^[0-9/*,]+\s+[0-9/*,]+\s+[0-9/*,]+\s+[0-9/*,]+\s+[0-9/*,]+\s+\S)?
+codenotary: passtschu@freenet.de
 services:
   - mysql:want

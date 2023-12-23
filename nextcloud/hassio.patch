@@ -14,8 +14,8 @@
 @@ -1,4 +1,7 @@
 +/config
  /config/
-+/custom_apps
 +/data
  /data/
++/custom_apps
  /custom_apps/
  /themes/
