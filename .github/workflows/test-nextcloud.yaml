@@ -1,0 +1,82 @@
+on: [push]
+
+jobs:
+  test-nextcloud:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install deps
+        run: |
+          sudo apt-get update -qqy &&
+          sudo apt-get install -qy podman
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Build image
+        run: |
+          IMAGE=$(awk '$1=="amd64:"{print $2}' nextcloud/build.yaml) &&
+          podman build \
+            --tag nc-image \
+            --build-arg BUILD_FROM=$IMAGE \
+            nextcloud
+      - name: Prepare test data
+        run: |
+          podman volume create nc-apps &&
+          podman volume create nc-config &&
+          podman volume create nc-data &&
+          echo '{"apps_dir":"/data/apps","config_dir":"/data/config","data_dir":"/data/data"}' > nc-options.json
+      - name: Initial startup
+        timeout-minutes: 1
+        run: |
+          podman run --rm \
+            -p 8080:80 \
+            --name nc-container \
+            -v nc-apps:/data/apps:rw \
+            -v nc-config:/data/config:rw \
+            -v nc-data:/data/data:rw \
+            -v $PWD/nc-options.json:/data/options.json:ro \
+            -e NEXTCLOUD_ADMIN_USER=admin \
+            -e NEXTCLOUD_ADMIN_PASSWORD=admin \
+            -e SQLITE_DATABASE=db \
+            nc-image &
+          until curl -sv http://127.0.0.1:8080/login 2>&1 | grep -q "HTTP/1.1 200 OK"; do sleep 1; echo "# retry"; done
+          podman stop nc-container
+      - name: Verify initial startup
+        run: |
+          podman run \
+            -v nc-apps:/data/apps:ro \
+            -v nc-config:/data/config:ro \
+            -v nc-data:/data/data:ro \
+            alpine \
+              ls -l /data/config/config.php /data/config/config.sample.php
+      - name: Prepare persistent test data
+        run: |
+          podman run \
+            -v nc-apps:/data/apps:rw \
+            -v nc-config:/data/config:rw \
+            -v nc-data:/data/data:rw \
+            alpine \
+              touch /data/apps/test-file /data/config/test-file /data/data/test-file
+      - name: Persistent startup
+        timeout-minutes: 1
+        run: |
+          podman run \
+            -p 8080:80 \
+            --name nc-container \
+            -v nc-apps:/data/apps:rw \
+            -v nc-config:/data/config:rw \
+            -v nc-data:/data/data:rw \
+            -v $PWD/nc-options.json:/data/options.json:ro \
+            nc-image &
+          until curl -sv http://127.0.0.1:8080/login 2>&1 | grep -q "HTTP/1.1 200 OK"; do sleep 1; echo "# retry"; done
+          podman stop nc-container
+      - name: Verify persistent startup
+        run: |
+          podman logs nc-container 2>&1 |
+            grep -F "Nextcloud is already latest version" &&
+          podman logs nc-container 2>&1 |
+            grep -F ".htaccess has been updated" &&
+          podman run \
+            -v nc-apps:/data/apps:ro \
+            -v nc-config:/data/config:ro \
+            -v nc-data:/data/data:ro \
+            alpine \
+              ls -l /data/apps/test-file /data/config/test-file /data/data/test-file

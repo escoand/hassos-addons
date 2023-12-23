@@ -43,4 +43,4 @@ fi
 
 # start
 /cron.sh &
-exec /entrypoint.sh "$@"
+exec sh /entrypoint.sh "$@"
