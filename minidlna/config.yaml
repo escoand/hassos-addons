@@ -9,8 +9,8 @@ arch:
   - amd64
   - i386
 init: false
-webui: http://[HOST]:[PORT:8200]/
-watchdog: http://[HOST]:[PORT:8200]/
+#webui: http://[HOST]:[PORT:8200]/
+watchdog: http://[HOST]:8200/
 hassio_api: true
 apparmor: true
 host_network: true
@@ -23,4 +23,4 @@ schema:
     - match(^([APV],)?/share/.*)
   root_container: list(.|B|M|V|P)?
   user: int?
-codenotary: passtschu@freenet.de
+codenotary: escoand@noreply.users.github.com
