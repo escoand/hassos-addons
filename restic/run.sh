@@ -7,7 +7,7 @@ CONFIG_PATH=/data/options.json
 SENSOR=sensor.restic
 
 # environment variables
-export RESTIC_BACKUP_SOURCE=$(jq -r '.backup_dir' $CONFIG_PATH)
+export RESTIC_BACKUP_SOURCES=$(jq -r '.backup_dirs' $CONFIG_PATH)
 export BACKUP_CRON=$(jq -r '.backup_cron' $CONFIG_PATH)
 export RESTIC_REPOSITORY=$(jq -r '.restic_repository' $CONFIG_PATH)
 export RESTIC_PASSWORD=$(jq -r '.restic_password' $CONFIG_PATH)
