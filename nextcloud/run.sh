@@ -18,9 +18,9 @@ export MYSQL_USER=$(jq -r '.database_user // empty' $CONFIG_PATH)
 export REDIS_HOST=$(jq -r '.redis_host // empty' $CONFIG_PATH)
 export REDIS_HOST_PORT=$(jq -r '.redis_port // empty' $CONFIG_PATH)
 
-if [ -n "$NEXTCLOUD_APPS_DIR" ] && [ ! -e /var/www/html/apps ]; then
-  ln -s "$NEXTCLOUD_APPS_DIR" /var/www/html/apps
-  chown -h www-data:www-data /var/www/html/apps
+if [ -n "$NEXTCLOUD_APPS_DIR" ] && [ ! -e /var/www/html/custom_apps ]; then
+  ln -s "$NEXTCLOUD_APPS_DIR" /var/www/html/custom_apps
+  chown -h www-data:www-data /var/www/html/custom_apps
 fi
 if [ -n "$NEXTCLOUD_CONFIG_DIR" ] && [ ! -e /var/www/html/config ]; then
   ln -s "$NEXTCLOUD_CONFIG_DIR" /var/www/html/config
