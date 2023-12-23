@@ -1,19 +1,20 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
-    "docker:enableMajor"
+    "config:recommended",
+    "docker:enableMajor",
+    "regexManagers:dockerfileVersions"
   ],
   "regexManagers": [
     {
-      "fileMatch": ["/build.yaml$"],
-      "matchStrings": ["\\s*(aarch64|amd64|armhf|armv7|i386):\\s+(?<depName>.*?):(?<currentValue>.*?)\\n"],
+      "fileMatch": [
+        "/build.yaml$"
+      ],
+      "matchStrings": [
+        "\\s*(aarch64|amd64|armhf|armv7|i386):\\s+(?<depName>.*?):(?<currentValue>.*?)\\n"
+      ],
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
-    },
-    {
-      "fileMatch": ["/Dockerfile$"],
-      "matchStrings": ["#\\s*renovate:\\s*datasource=(?<datasource>.*?) depName=(?<depName>.*?)\\sENV .*?_VERSION=(?<currentValue>.*)"]
     }
   ]
 }
