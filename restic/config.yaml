@@ -1,5 +1,5 @@
 name: Restic
-version: 1.7.0-1
+version: 1.7.0-2
 slug: restic
 description: fast and secure backup program
 arch:
@@ -9,12 +9,13 @@ arch:
 init: false
 startup: system
 map:
+  - backup
   - config
   - share
 homeassistant_api: true
 #environment:
 options:
-  backup_dir: /share
+  backup_dir: /backup /config /share
   backup_cron: 0 0 2 * * *
   restic_repository: b2:...:/backups
   restic_password: null
