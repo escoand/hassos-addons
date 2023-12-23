@@ -19,7 +19,7 @@ options:
   media_dirs: []
 schema:
   media_dirs:
-    - str
+    - match(^([APV],)?/share/.*)
   friendly_name: str?
   user: int?
 codenotary: passtschu@freenet.de
