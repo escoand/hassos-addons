@@ -96,10 +96,12 @@ jobs:
               sh -c '! ls -l /data/config/*'
       # maintenance mode
       - name: Activate maintenance mode
+        timeout-minutes: 2
         run: |
           curl -fsv http://127.0.0.1:9000/hooks/maintenance_on &&
           until curl -sv http://127.0.0.1:8080/login 2>&1 | grep -q "HTTP/1.1 503 "; do sleep 1; echo "# retry"; done
       - name: Deactivate maintenance mode
+        timeout-minutes: 2
         run: |
           curl -fsv http://127.0.0.1:9000/hooks/maintenance_off &&
           until curl -sv http://127.0.0.1:8080/login 2>&1 | grep -q "HTTP/1.1 200 OK"; do sleep 1; echo "# retry"; done
