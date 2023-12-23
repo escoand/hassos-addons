@@ -1,7 +1,7 @@
 name: Nextcloud
-version: 27.0.1-1
+version: 27.0.1-2
 slug: nextcloud
-description: A safe home for all your data
+description: A safe home for all your data (32 bit won't be 27+)
 arch:
   - armhf
   - armv7
