@@ -1,0 +1,41 @@
+name: Restic
+version: 1.7.0-1
+slug: restic
+description: fast and secure backup program
+arch:
+  - armv7
+  - aarch64
+  - amd64
+init: false
+startup: system
+map:
+  - config
+  - share
+homeassistant_api: true
+#environment:
+options:
+  backup_dir: /share
+  backup_cron: 0 0 2 * * *
+  restic_repository: b2:...:/backups
+  restic_password: null
+  restic_backup_args: >-
+    --exclude '*.log'
+    --exclude 'appdata_*'
+    --exclude 'files_trashbin'
+    --exclude 'updater-*'
+    --exclude-if-present '.nobackup'
+    --exclude-if-present 'platformio.ini'
+  restic_forget_args: >-
+    --keep-daily 7
+    --keep-weekly 5
+    --keep-monthly 12
+schema:
+  backup_dir: str
+  backup_cron: str
+  restic_repository: str
+  restic_password: password
+  restic_backup_args: str?
+  restic_forget_args: str?
+  b2_account_id: str?
+  b2_account_key: password?
+codenotary: escoand@users.noreply.github.com
