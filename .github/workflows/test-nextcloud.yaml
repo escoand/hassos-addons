@@ -34,7 +34,7 @@ jobs:
             -p 8080:80 \
             --name nc-container \
             -v nc-apps:/data/apps:rw \
-            -v nc-config:/addon_config:rw \
+            -v nc-config:/config:rw \
             -v nc-config-old:/data/config:rw \
             -v nc-data:/data/data:rw \
             -v $PWD/nc-options.json:/data/options.json:ro \
@@ -47,9 +47,9 @@ jobs:
       - name: Verify initial startup
         run: |
           podman run \
-            -v nc-config:/addon_config:ro \
+            -v nc-config:/config:ro \
             alpine \
-              ls -l /addon_config/config.php /addon_config/config.sample.php &&
+              ls -l /config/config.php /config/config.sample.php &&
           podman run \
             -v nc-config-old:/data/config:ro \
             alpine \
@@ -59,11 +59,11 @@ jobs:
         run: |
           podman run \
             -v nc-apps:/data/apps:rw \
-            -v nc-config:/addon_config:rw \
+            -v nc-config:/config:rw \
             -v nc-config-old:/data/config:rw \
             -v nc-data:/data/data:rw \
             alpine \
-              touch /data/apps/test-file /data/config/old-file /data/data/test-file /addon_config/test-file
+              touch /data/apps/test-file /data/config/old-file /data/data/test-file /config/test-file
       - name: Persistent startup
         timeout-minutes: 1
         run: |
@@ -71,7 +71,7 @@ jobs:
             -p 8080:80 \
             --name nc-container \
             -v nc-apps:/data/apps:rw \
-            -v nc-config:/addon_config:rw \
+            -v nc-config:/config:rw \
             -v nc-config-old:/data/config:rw \
             -v nc-data:/data/data:rw \
             -v $PWD/nc-options.json:/data/options.json:ro \
@@ -86,10 +86,10 @@ jobs:
             grep -F ".htaccess has been updated" &&
           podman run \
             -v nc-apps:/data/apps:ro \
-            -v nc-config:/addon_config:ro \
+            -v nc-config:/config:ro \
             -v nc-data:/data/data:ro \
             alpine \
-              ls -l /data/apps/test-file /data/data/test-file /addon_config/test-file /addon_config/old-file &&
+              ls -l /data/apps/test-file /data/data/test-file /config/test-file /config/old-file &&
           podman run \
             -v nc-config-old:/data/config:ro \
             alpine \
