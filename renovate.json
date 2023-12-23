@@ -6,13 +6,7 @@
   "regexManagers": [
     {
       "fileMatch": ["/build.yaml$"],
-      "matchStrings": [
-        "\\s*aarch64:\\s+(?<depName>.*?)\\n",
-        "\\s*amd64:\\s+(?<depName>.*?)\\n",
-        "\\s*armhf:\\s+(?<depName>.*?)\\n",
-        "\\s*armv7:\\s+(?<depName>.*?)\\n",
-        "\\s*i386:\\s+(?<depName>.*?)\\n"
-      ],
+      "matchStrings": ["\\s*(aarch64|amd64|armhf|armv7|i386):\\s+(?<depName>.*?):(?<currentValue>.*?)\\n"],
       "datasourceTemplate": "docker"
     }
   ]
