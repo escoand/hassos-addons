@@ -1,5 +1,5 @@
 name: Samba
-version: 4.18.8-0
+version: 4.18.8-1
 slug: samba
 description: Share paths as read only
 arch:
