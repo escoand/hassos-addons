@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bashio
 # shellcheck shell=bash
 
-set -e
+set -euo pipefail
 
 # gobal
 USER_=$(bashio::config user root)
