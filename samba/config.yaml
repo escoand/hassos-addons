@@ -31,4 +31,4 @@ schema:
       path: match(^/share/.*$)
       users: str?
       writable: bool?
-codenotary: passtschu@freenet.de
+codenotary: escoand@users.noreply.github.com
