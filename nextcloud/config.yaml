@@ -1,5 +1,5 @@
 name: Nextcloud
-version: 26.0.1-9
+version: 26.0.1-10
 slug: nextcloud
 description: A safe home for all your data
 arch:
@@ -17,6 +17,7 @@ ports:
 map:
   - share:rw
 options:
+  apps_dir: /share/nextcloud/apps
   config_dir: /share/nextcloud/config
   data_dir: /share/nextcloud/data
   domains: null
@@ -28,6 +29,7 @@ options:
   redis_host: local-redis
   redis_port: 6379
 schema:
+  apps_dir: "str?"
   config_dir: "str?"
   data_dir: "str?"
   domains: "str?"
