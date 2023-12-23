@@ -1,5 +1,5 @@
 name: Nextcloud
-version: 27.1.1-1
+version: 27.1.2-1
 slug: nextcloud
 description: A safe home for all your data
 arch:
@@ -40,6 +40,6 @@ schema:
   redis_port: port?
   cronjobs:
     - match(^[0-9/*,]+\s+[0-9/*,]+\s+[0-9/*,]+\s+[0-9/*,]+\s+[0-9/*,]+\s+\S)?
-codenotary: passtschu@freenet.de
+codenotary: escoand@users.noreply.github.com
 services:
   - mysql:want
