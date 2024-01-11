@@ -1,5 +1,5 @@
 name: Redis
-version: 7.2.3-0
+version: 7.2.4-0
 slug: redis
 description: The open source in-memory data store
 arch:
