@@ -5,6 +5,19 @@
     "docker:enableMajor",
     "regexManagers:dockerfileVersions"
   ],
+  "packageRules": [
+    {
+      "groupName": "docker architectures",
+      "groupSlug": "docker-arch",
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
+    }
+  ],
   "regexManagers": [
     {
       "fileMatch": [
