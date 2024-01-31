@@ -1,0 +1,27 @@
+name: Synapse
+version: 1.99.0-1
+slug: synapse
+description: open-source Matrix homeserver written and maintained by the Matrix.org Foundation
+arch:
+  - aarch64
+  - amd64
+init: false
+watchdog: http://[HOST]:[PORT:8008]/health
+apparmor: true
+ports:
+  8008/tcp: null
+map:
+  - addon_config:rw
+  - all_addon_configs:ro
+options:
+  server_name: null
+  app_services: []
+schema:
+  server_name: str
+  app_services:
+    - str
+environment:
+  SYNAPSE_CONFIG_DIR: /config
+  SYNAPSE_DATA_DIR: /config
+  SYNAPSE_REPORT_STATS: "no"
+codenotary: escoand@users.noreply.github.com
