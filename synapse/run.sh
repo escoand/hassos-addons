@@ -16,10 +16,12 @@ if [ ! -f $APP_CONFIG ]; then
 fi
 
 # server name
+# shellcheck disable=SC2016
 yq -iY --arg data "$SERVER_NAME" '.server_name=$data' $APP_CONFIG
 
 # app services
 DATA=$(jq -r '.app_services // empty' $CONFIG_PATH)
+# shellcheck disable=SC2016
 yq -iY --argjson data "$DATA" '.app_service_config_files=$data' $APP_CONFIG
 
 exec /start.py "$@"
