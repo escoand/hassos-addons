@@ -1,5 +1,5 @@
 build_from:
   aarch64: dock.mau.dev/mautrix/signal:latest
-  amd64: dock.mau.dev/mautrix/signal:v0.4.3
+  amd64: dock.mau.dev/mautrix/signal:v0.5.0
 codenotary:
   signer: escoand@users.noreply.github.com
