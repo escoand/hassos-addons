@@ -1,5 +1,5 @@
 name: Restic
-version: 1.7.1-1
+version: 1.7.2-0
 slug: restic
 description: fast and secure backup program
 arch:
@@ -25,7 +25,6 @@ options:
     --exclude 'files_trashbin'
     --exclude 'updater-*'
     --exclude-if-present '.nobackup'
-    --exclude-if-present 'platformio.ini'
   restic_forget_args: >-
     --keep-daily 7
     --keep-weekly 5
