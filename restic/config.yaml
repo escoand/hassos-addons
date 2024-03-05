@@ -25,7 +25,6 @@ options:
     --exclude 'files_trashbin'
     --exclude 'updater-*'
     --exclude-if-present '.nobackup'
-    --exclude-if-present 'platformio.ini'
   restic_forget_args: >-
     --keep-daily 7
     --keep-weekly 5
