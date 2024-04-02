@@ -1,5 +1,5 @@
 build_from:
-  aarch64: dock.mau.dev/mautrix/whatsapp:v0.10.5
-  amd64: dock.mau.dev/mautrix/whatsapp:v0.10.5
+  aarch64: dock.mau.dev/mautrix/whatsapp:v0.10.6
+  amd64: dock.mau.dev/mautrix/whatsapp:v0.10.6
 codenotary:
   signer: escoand@users.noreply.github.com
