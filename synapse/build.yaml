@@ -1,5 +1,5 @@
 build_from:
-  aarch64: docker.io/matrixdotorg/synapse:v1.101.0
-  amd64: docker.io/matrixdotorg/synapse:v1.101.0
+  aarch64: docker.io/matrixdotorg/synapse:v1.104.0
+  amd64: docker.io/matrixdotorg/synapse:v1.104.0
 codenotary:
   signer: escoand@users.noreply.github.com
