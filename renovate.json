@@ -5,7 +5,7 @@
     "docker:enableMajor",
     "group:allNonMajor",
     "regexManagers:dockerfileVersions",
-    ":separateMultipleMajorReleases"
+    ":separateMajorReleases"
   ],
   "regexManagers": [
     {
