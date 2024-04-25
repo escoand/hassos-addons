@@ -4,7 +4,8 @@
     "config:recommended",
     "docker:enableMajor",
     "group:allNonMajor",
-    "regexManagers:dockerfileVersions"
+    "regexManagers:dockerfileVersions",
+    ":separateMultipleMajorReleases"
   ],
   "regexManagers": [
     {
