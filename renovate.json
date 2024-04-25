@@ -12,7 +12,7 @@
         "/build.yaml$"
       ],
       "matchStrings": [
-        "(?<registry>\\S+/)((aarch64|amd64|arm\\d+v\\d+|i386)/)(?<depName>\\S+):(?<currentValue>\\S+)\\n"
+        "(?<registry>\\S+/)((aarch64|amd64|arm\\d+v\\d+|i386)/)?(?<depName>\\S+):(?<currentValue>\\S+)\\n"
       ],
       "packageNameTemplate": "{{{registry}}}{{{depName}}}",
       "datasourceTemplate": "docker",
