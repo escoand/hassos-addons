@@ -13,6 +13,7 @@
       ],
       "matchStrings": [
         "(?<registry>[\\s.]+/)?(aarch64|amd64|armhf|armv7|i386)/(?<depName>[\\s.]+):(?<currentValue>.*?)\\n"
+        "(?<registry>\\S+/)((aarch64|amd64|arm\\d+v\\d+|i386)/)(?<depName>\\S+):(?<currentValue>\\S+)\\n"
       ],
       "packageNameTemplate": "{{{registry}}}{{{depName}}}",
       "datasourceTemplate": "docker",
