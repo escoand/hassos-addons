@@ -3,20 +3,8 @@
   "extends": [
     "config:recommended",
     "docker:enableMajor",
+    "group:allNonMajor",
     "regexManagers:dockerfileVersions"
-  ],
-  "packageRules": [
-    {
-      "groupName": "docker architectures",
-      "groupSlug": "docker-arch",
-      "matchDatasources": [
-        "docker"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ]
-    }
   ],
   "regexManagers": [
     {
