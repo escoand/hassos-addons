@@ -12,9 +12,19 @@
         "/build.yaml$"
       ],
       "matchStrings": [
-        "(?<registry>\\S+/)((aarch64|amd64|arm\\d+v\\d+|i386)/)(?<depName>\\S+):(?<currentValue>\\S+)\\n"
+        "(?<registry>\\S+/)((aarch64|amd64|arm\\d+v\\d+|i386)/)(?<depName>\\S+):(?<currentValue>[\\d.]+)\\n"
       ],
       "packageNameTemplate": "{{{registry}}}{{{depName}}}",
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "docker"
+    },
+    {
+      "fileMatch": [
+        "/config.yaml$"
+      ],
+      "matchStrings": [
+        "^version:\\s+(?<currentValue>[\\d.]+)(-\\d+)?\\s*\\n^slug:\\s+(?<depName>\\S+)\\s*\\n"
+      ],
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
     }
