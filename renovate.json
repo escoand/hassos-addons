@@ -23,7 +23,7 @@
         "/config.yaml$"
       ],
       "matchStrings": [
-        "^version:\\s+(?<currentValue>[\\d.]+)(-\\d+)?\\s*\\nslug:\\s+(?<depName>\\S+)\\s*\\n"
+        "\\nversion:\\s+(?<currentValue>[\\d.]+)(-\\d+)?\\s*\\nslug:\\s+(?<depName>\\S+)\\s*\\n"
       ],
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
