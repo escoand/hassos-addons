@@ -16,6 +16,7 @@
         "(?<registry>\\S+/)((aarch64|amd64|arm\\d+/v\\d+|i386)/)?(?<depName>\\S+):(?<currentValue>\\S+)\\n"
       ],
       "depNameTemplate": "{{{registry}}}{{{depName}}}",
+      "packageNameTemplate": "{{{depName}}}",
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
     },
