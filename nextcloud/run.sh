@@ -2,6 +2,7 @@
 # shellcheck disable=SC2155
 
 set -euo pipefail
+trap "" SIGWINCH
 
 CONFIG_PATH=/data/options.json
 
