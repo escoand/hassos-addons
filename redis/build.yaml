@@ -1,8 +1,8 @@
 build_from:
-  armhf: docker.io/arm32v7/redis:7.2.4-alpine
-  armv7: docker.io/arm32v7/redis:7.2.4-alpine
-  aarch64: docker.io/arm64v8/redis:7.2.4-alpine
-  amd64: docker.io/amd64/redis:7.2.4-alpine
-  i386: docker.io/i386/redis:7.2.4-alpine
+  armhf: docker.io/arm32v7/redis:7.2.5-alpine
+  armv7: docker.io/arm32v7/redis:7.2.5-alpine
+  aarch64: docker.io/arm64v8/redis:7.2.5-alpine
+  amd64: docker.io/amd64/redis:7.2.5-alpine
+  i386: docker.io/i386/redis:7.2.5-alpine
 codenotary:
   signer: escoand@users.noreply.github.com
