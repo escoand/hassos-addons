@@ -48,5 +48,6 @@ fi
 
 # start
 sudo -u www-data webhook -hooks /hooks.yaml -verbose &
-/cron.sh &
-exec /entrypoint.sh "$@"
+# don't exec entrypoint.sh, because apache stops on SIGWINCH
+/entrypoint.sh "$@" &
+exec /cron.sh
