@@ -18,9 +18,6 @@ ports:
 map:
   - addon_config:rw
   - share:rw
-env:
-  NEXTCLOUD_INIT_HTACCESS: "true"
-  NEXTCLOUD_UPDATE: "1"
 options:
   apps_dir: /share/nextcloud/apps
   config_dir: /share/nextcloud/config
