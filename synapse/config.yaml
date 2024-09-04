@@ -1,5 +1,5 @@
 name: Synapse
-version: 1.113.0-0
+version: 1.114.0-0
 slug: synapse
 description: open-source Matrix homeserver written and maintained by the Matrix.org Foundation
 arch:
