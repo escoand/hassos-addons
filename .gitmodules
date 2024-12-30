@@ -1,0 +1,3 @@
+[submodule "nextcloud-facerecognition/facerecognition-external-model"]
+	path = nextcloud-facerecognition/facerecognition-external-model
+	url = https://github.com/matiasdelellis/facerecognition-external-model.git

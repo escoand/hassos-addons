@@ -10,4 +10,4 @@ API_KEY=$(jq -r '.api_key // empty' $CONFIG_PATH)
 GUNICORN_WORKERS=$(jq -r '.workers // empty' $CONFIG_PATH)
 [ -n "$GUNICORN_WORKERS" ] && export GUNICORN_WORKERS
 
-exec flask run -h 0.0.0.0
+exec gunicorn -c gunicorn_config.py facerecognition-external-model:app
