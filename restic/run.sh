@@ -25,11 +25,7 @@ export POST_COMMANDS_INCOMPLETE="curl -sS -XPOST --header 'Authorization: Bearer
 # ssh
 if [[ $RESTIC_REPOSITORY = sftp:* ]]; then
   mkdir -p ~/.ssh
-  ln -s /config/sss_config ~/.ssh/config
-  # config
-  if [ ! -f /config/ssh_config ]; then
-    printf 'Host *\nStrictHostKeyChecking no\nIdentityFile /config/ssh.key\n' >/config/ssh_config
-  fi
+  printf 'Host *\nStrictHostKeyChecking no\nIdentityFile /config/ssh.key\n' >~/.ssh/config
   # ssh key
   if [ ! -f /config/ssh.key ]; then
     ssh-keygen -t rsa -q -f /config/ssh.key -N ""
