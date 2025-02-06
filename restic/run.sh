@@ -22,6 +22,23 @@ export POST_COMMANDS_SUCCESS="curl -sS -XPOST --header 'Authorization: Bearer $S
 export POST_COMMANDS_FAILURE="curl -sS -XPOST --header 'Authorization: Bearer $SUPERVISOR_TOKEN' http://supervisor/core/api/events/restic_backup_failure"
 export POST_COMMANDS_INCOMPLETE="curl -sS -XPOST --header 'Authorization: Bearer $SUPERVISOR_TOKEN' http://supervisor/core/api/events/restic_backup_incomplete"
 
+# ssh
+if [[ $RESTIC_REPOSITORY = sftp:* ]]; then
+  mkdir -p ~/.ssh
+  ln -s /config/sss_config ~/.ssh/config
+  # config
+  if [ ! -f /config/ssh_config ]; then
+    printf 'Host *\nStrictHostKeyChecking no\nIdentityFile /config/ssh.key\n' >/config/ssh_config
+  fi
+  # ssh key
+  if [ ! -f /config/ssh.key ]; then
+    ssh-keygen -t rsa -q -f /config/ssh.key -N ""
+  fi
+  echo "### SSH Key ###"
+  cat /config/ssh.key.pub
+  echo "###############"
+fi
+
 # gather statistics
 while true; do
   restic --no-lock snapshots latest --json > /tmp/snapshots.tmp &&
