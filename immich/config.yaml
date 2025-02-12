@@ -1,0 +1,35 @@
+name: Immich
+version: 1.126.1-1
+slug: immich
+description: Self-hosted photo and video management solution
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+init: false
+webui: http://[HOST]:[PORT:2283]/
+watchdog: http://[HOST]:[PORT:2283]/
+apparmor: true
+ports:
+  2283/tcp: 2283
+map:
+  - addon_config:rw
+  - share
+options:
+  database_host: 12fdc862-pgvectors
+  database_name: ""
+  database_user: ""
+  database_password: ""
+  redis_host: 12fdc862-redis
+schema:
+  database_host: str?
+  database_port: port?
+  database_name: str?
+  database_user: str?
+  database_password: password?
+  redis_host: str?
+  redis_port: port?
+codenotary: escoand@users.noreply.github.com
+
