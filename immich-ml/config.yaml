@@ -1,0 +1,24 @@
+name: Immich Machine Learning
+version: 1.126.1-0
+slug: immich-ml
+description: Self-hosted photo and video management solution
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+map:
+  - type: addon_config
+    path: /cache
+    read_only: false
+devices:
+  - /dev/dri
+init: false
+apparmor: false
+watchdog: http://[HOST]:3003/ping
+codenotary: escoand@users.noreply.github.com
+
+# we need --security-opt=systempaths=unconfined for RKNN support
+# the devicetree option does it wrong, currently
+# see https://github.com/blakeblackshear/frigate-hass-addons/issues/145
