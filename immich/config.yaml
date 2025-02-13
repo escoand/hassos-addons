@@ -1,5 +1,5 @@
 name: Immich
-version: 1.126.1-1
+version: 1.126.1-2
 slug: immich
 description: Self-hosted photo and video management solution
 arch:
@@ -23,6 +23,7 @@ options:
   database_user: ""
   database_password: ""
   redis_host: 12fdc862-redis
+  ml_url: "http://12fdc862-immich-ml:3003"
 schema:
   database_host: str?
   database_port: port?
@@ -31,5 +32,6 @@ schema:
   database_password: password?
   redis_host: str?
   redis_port: port?
+  ml_url: str?
 codenotary: escoand@users.noreply.github.com
 
