@@ -13,6 +13,7 @@ export RESTIC_REPOSITORY=$(jq -r '.restic_repository' $CONFIG_PATH)
 export RESTIC_PASSWORD=$(jq -r '.restic_password' $CONFIG_PATH)
 export RESTIC_BACKUP_ARGS=$(jq -r '.restic_backup_args // empty' $CONFIG_PATH)
 export RESTIC_FORGET_ARGS=$(jq -r '.restic_forget_args // empty' $CONFIG_PATH)
+export RESTIC_PROGRESS_FPS=0.1
 # b2 environment
 export B2_ACCOUNT_ID=$(jq -r '.b2_account_id // empty' $CONFIG_PATH)
 export B2_ACCOUNT_KEY=$(jq -r '.b2_account_key // empty' $CONFIG_PATH)
