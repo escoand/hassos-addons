@@ -1,5 +1,5 @@
 name: Restic
-version: 1.7.2-3
+version: 1.7.2-4
 slug: restic
 description: fast and secure backup program
 arch:
