@@ -4,18 +4,27 @@
     "config:recommended",
     "docker:enableMajor",
     "group:allNonMajor",
-    "regexManagers:dockerfileVersions",
+    "customManagers:dockerfileVersions",
     ":separateMajorReleases"
   ],
-  "regexManagers": [
+  "customManagers": [
     {
-      "fileMatch": ["/build\\.yaml$"],
-      "matchStrings": ["(?<depName>\\S+):(?<currentValue>\\S+)\\n"],
+      "customType": "regex",
+      "fileMatch": [
+        "/build\\.yaml$"
+      ],
+      "matchStrings": [
+        "(?<depName>\\S+):(?<currentValue>\\S+)\\n"
+      ],
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
     },
     {
-      "fileMatch": ["/config\\.yaml$", "/Dockerfile$"],
+      "customType": "regex",
+      "fileMatch": [
+        "/config\\.yaml$",
+        "/Dockerfile$"
+      ],
       "matchStrings": [
         "#\\s*renovate:\\s*datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>.*?))?\\r?\\nversion:\\s+(?<currentValue>[\\d.]+)",
         "#\\s*renovate:\\s*datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>.*?))?\\r?\\nENV .*?_VERSION=\"?(?<currentValue>\\S+)\"?"
