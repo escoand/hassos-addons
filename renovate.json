@@ -9,25 +9,18 @@
   ],
   "regexManagers": [
     {
-      "fileMatch": [
-        "/build.yaml$"
-      ],
-      "matchStrings": [
-        "(?<registry>\\S+/)((aarch64|amd64|arm\\d+/v\\d+|i386)/)?(?<depName>\\S+):(?<currentValue>\\S+)\\n"
-      ],
-      "packageNameTemplate": "{{{registry}}}{{{depName}}}",
+      "fileMatch": ["/build\\.yaml$"],
+      "matchStrings": ["(?<depName>\\S+):(?<currentValue>\\S+)\\n"],
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
     },
     {
-      "fileMatch": [
-        "/config.yaml$"
-      ],
+      "fileMatch": ["/config\\.yaml$", "/Dockerfile$"],
       "matchStrings": [
-        "\\nversion:\\s+(?<currentValue>[\\d.]+)(-\\d+)?\\s*\\nslug:\\s+(?<depName>\\S+)\\s*\\n"
+        "#\\s*renovate:\\s*datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>.*?))?\\r?\\nversion:\\s+(?<currentValue>[\\d.]+)",
+        "#\\s*renovate:\\s*datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>.*?))?\\r?\\nENV .*?_VERSION=\"?(?<currentValue>\\S+)\"?"
       ],
-      "datasourceTemplate": "docker",
-      "versioningTemplate": "docker"
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
   ]
 }

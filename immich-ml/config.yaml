@@ -1,4 +1,5 @@
 name: Immich Machine Learning
+# renovate: datasource=docker depName=ghcr.io/immich-app/immich-machine-learning
 version: 1.129.0-0
 slug: immich-ml
 description: Self-hosted photo and video management solution
