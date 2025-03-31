@@ -1,7 +1,7 @@
 build_from:
-  aarch64: ghcr.io/immich-app/immich-machine-learning:v1.130.3-armnn
-  amd64: ghcr.io/immich-app/immich-machine-learning:v1.130.3
-  i386: ghcr.io/immich-app/immich-machine-learning:v1.130.3
+  aarch64: ghcr.io/immich-app/immich-machine-learning:v1.131.1-armnn
+  amd64: ghcr.io/immich-app/immich-machine-learning:v1.131.1
+  i386: ghcr.io/immich-app/immich-machine-learning:v1.131.1
 codenotary:
   signer: escoand@users.noreply.github.com
 
