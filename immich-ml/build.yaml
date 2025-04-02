@@ -1,5 +1,5 @@
 build_from:
-  aarch64: ghcr.io/immich-app/immich-machine-learning:v1.131.1-armnn
+  aarch64: ghcr.io/immich-app/immich-machine-learning:v1.131.1
   amd64: ghcr.io/immich-app/immich-machine-learning:v1.131.1
   i386: ghcr.io/immich-app/immich-machine-learning:v1.131.1
 codenotary:
