@@ -1,5 +1,6 @@
 name: Restic
-version: 1.7.2-4
+# renovate: datasource=docker depName=docker.io/mazzolino/restic
+version: 1.8.0-0
 slug: restic
 description: fast and secure backup program
 arch:
