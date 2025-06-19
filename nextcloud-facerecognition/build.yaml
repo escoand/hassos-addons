@@ -1,5 +1,0 @@
-#build_from:
-  #aarch64: matiasdelellis/facerecognition-external-model:v1.1
-  #amd64: matiasdelellis/facerecognition-external-model:v1.1
-codenotary:
-  signer: escoand@users.noreply.github.com
