@@ -1,6 +1,6 @@
 name: Samba
-# renovate: datasource=repology depName=alpine_3_21/samba-server versioning=loose
-version: 4.20.6-0
+# renovate: datasource=repology depName=alpine_3_22/samba-server versioning=loose
+version: 4.21.4-r4-0
 slug: samba
 description: Share paths as read only
 arch:
