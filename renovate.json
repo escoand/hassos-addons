@@ -10,8 +10,8 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
-        "/build\\.yaml$"
+      "managerFilePatterns": [
+        "//build\\.yaml$/"
       ],
       "matchStrings": [
         "(?<depName>\\S+):(?<currentValue>\\S+)\\n"
@@ -21,9 +21,9 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "/config\\.yaml$",
-        "/Dockerfile$"
+      "managerFilePatterns": [
+        "//config\\.yaml$/",
+        "//Dockerfile$/"
       ],
       "matchStrings": [
         "#\\s*renovate:\\s*datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>.*?))?\\r?\\nversion:\\s+(?<currentValue>[\\d.]+)",
