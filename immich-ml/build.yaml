@@ -1,7 +1,7 @@
 build_from:
-  aarch64: ghcr.io/immich-app/immich-machine-learning:v1.135.0
-  amd64: ghcr.io/immich-app/immich-machine-learning:v1.135.0-openvino
-  i386: ghcr.io/immich-app/immich-machine-learning:v1.135.0-openvino
+  aarch64: ghcr.io/immich-app/immich-machine-learning:v1.135.1
+  amd64: ghcr.io/immich-app/immich-machine-learning:v1.135.1-openvino
+  i386: ghcr.io/immich-app/immich-machine-learning:v1.135.1-openvino
 codenotary:
   signer: escoand@users.noreply.github.com
 
