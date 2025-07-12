@@ -1,6 +1,6 @@
 name: Nextcloud
 # renovate: datasource=docker depName=docker.io/library/nextcloud
-version: 31.0.6-0
+version: 31.0.7-0
 slug: nextcloud
 description: A safe home for all your data
 arch:
