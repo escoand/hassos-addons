@@ -1,7 +1,7 @@
 build_from:
-  aarch64: ghcr.io/immich-app/immich-machine-learning:v1.135.3
-  amd64: ghcr.io/immich-app/immich-machine-learning:v1.135.3-cuda
-  i386: ghcr.io/immich-app/immich-machine-learning:v1.135.3-cuda
+  aarch64: ghcr.io/immich-app/immich-machine-learning:v1.136.0
+  amd64: ghcr.io/immich-app/immich-machine-learning:v1.136.0-cuda
+  i386: ghcr.io/immich-app/immich-machine-learning:v1.136.0-cuda
 codenotary:
   signer: escoand@users.noreply.github.com
 
