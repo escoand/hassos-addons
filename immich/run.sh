@@ -21,4 +21,4 @@ REDIS_PORT=$(jq -r '.redis_port // empty' $CONFIG_PATH)
 
 export IMMICH_MEDIA_LOCATION=/config
 
-exec /usr/src/app/start.sh
+exec /usr/src/app/server/bin/start.sh
