@@ -1,7 +1,7 @@
 build_from:
   armhf: docker.io/arm32v7/redis:8.2.0-alpine
   armv7: docker.io/arm32v7/redis:8.2.0-alpine
-  aarch64: docker.io/arm64v8/redis:8.0.3-alpine
+  aarch64: docker.io/arm64v8/redis:8.2.0-alpine
   amd64: docker.io/amd64/redis:8.2.0-alpine
   i386: docker.io/i386/redis:8.2.0-alpine
 codenotary:
