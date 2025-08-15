@@ -11,7 +11,7 @@ jobs:
           sudo apt-get update -qqy &&
           sudo apt-get install -qy podman
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Build image
         run: |
           IMAGE=$(awk '$1=="amd64:"{print $2}' nextcloud/build.yaml) &&
