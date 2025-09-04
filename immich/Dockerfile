@@ -1,4 +1,4 @@
-FROM ghcr.io/immich-app/immich-server:v1.139.4
+FROM ghcr.io/immich-app/immich-server:v1.140.1
 
 RUN apt-get update && \
     apt-get install -y jq && \
