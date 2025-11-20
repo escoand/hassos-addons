@@ -1,6 +1,6 @@
 name: Immich
 # renovate: datasource=docker depName=ghcr.io/immich-app/immich-server
-version: 2.2.3-0
+version: 2.3.1-0
 slug: immich
 description: Self-hosted photo and video management solution
 arch:
