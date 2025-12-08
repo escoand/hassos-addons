@@ -20,9 +20,9 @@ done &
 while true; do
   touch /tmp/snapshots.json /tmp/stats.json
   jq -n \
-    --argfile sn /tmp/snapshots.json \
-    --argfile st /tmp/stats.json \
-    '{"state":"update","attributes":{"snapshots":$sn,"stats":$st}}' |
+    --rawfile sn /tmp/snapshots.json \
+    --rawfile st /tmp/stats.json \
+    '{"state":"update","attributes":{"snapshots":($sn|fromjson),"stats":($st|fromjson)}}' |
     curl -sS -XPOST \
       --header "Authorization: Bearer $SUPERVISOR_TOKEN" \
       --header "Content-Type: application/json" \
