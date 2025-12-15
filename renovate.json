@@ -34,8 +34,12 @@
   ],
   "packageRules": [
     {
-      "matchDatasources": ["docker"],
-      "packageName": "{{{replace '^.*/' '' packageName}}}"
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "{{{replace '^.*/' '' packageName}}}"
+      ]
     }
   ]
 }
