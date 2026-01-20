@@ -30,6 +30,18 @@
         "#\\s*renovate:\\s*datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>.*?))?\\r?\\nENV .*?_VERSION=\"?(?<currentValue>\\S+)\"?"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "//config\\.yaml$/",
+        "//Dockerfile$/"
+      ],
+      "matchStrings": [
+        "#\\s*renovate:\\s*datasource=repology depName=(?<depName>[^_]+)_(?<currentValue>[\\d_]+)/",
+        "#\\s*renovate:\\s*datasource=repology depName=(?<depName>[^_]+)_(?<currentValue>[\\d_]+)/"
+      ],
+      "currentValueTemplate": "{{{replace '_' '.' currentValue}}}"
     }
   ],
   "packageRules": [

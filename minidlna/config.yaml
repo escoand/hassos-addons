@@ -1,14 +1,11 @@
 name: MiniDLNA
-# renovate: datasource=repology depName=alpine_3_22/minidlna versioning=loose
+# renovate: datasource=repology depName=alpine_3_23/minidlna versioning=loose
 version: 1.3.3-3
 slug: minidlna
 description: Simple media server software, with the aim of being fully compliant with DLNA/UPnP-AV clients
 arch:
-  - armhf
-  - armv7
   - aarch64
   - amd64
-  - i386
 init: false
 webui: http://[HOST]:[PORT:8200]/
 watchdog: http://[HOST]:[PORT:8200]/
