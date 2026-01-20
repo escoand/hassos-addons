@@ -23,19 +23,11 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "//config\\.yaml$/"
-      ],
-      "matchStrings": [
-        "^#\\s*renovate:\\s*datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>.*?))?\\r?\\nversion:\\s+(?<currentValue>\\S+)-\\d+$"
-      ],
-      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
+        "//config\\.yaml$/",
         "//Dockerfile$/"
       ],
       "matchStrings": [
+        "^#\\s*renovate:\\s*datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>.*?))?\\r?\\nversion:\\s+(?<currentValue>\\S+)-\\d+$",
         "^#\\s*renovate:\\s*datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>.*?))?\\r?\\nENV .*?_VERSION=\"?(?<currentValue>\\S+)\"?$"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
