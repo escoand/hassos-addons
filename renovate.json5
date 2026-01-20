@@ -19,6 +19,7 @@
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
     },
+    // Repology dependencies
     {
       "customType": "regex",
       "managerFilePatterns": [
@@ -31,6 +32,7 @@
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     },
+    // Repo version in Repology
     {
       "customType": "regex",
       "managerFilePatterns": [
@@ -38,9 +40,10 @@
         "//Dockerfile$/"
       ],
       "matchStrings": [
-        "#\\s*renovate:\\s*datasource=(?<datasource>\\S+) depName=(?<depName>[^_]+)_(?<currentValue>[\\d_]+)/"
+        "#\\s*renovate:\\s*datasource=(\\S+) depName=(?<depName>[^_]+)_(?<currentValue>[\\d_]+)/"
       ],
-      "currentValueTemplate": "{{{replace '_' '.' currentValue}}}"
+      "currentValueTemplate": "{{{replace '_' '.' currentValue}}}",
+      "datasourceTemplate": "endoflife-date"
     }
   ],
   "packageRules": [
