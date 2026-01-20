@@ -38,8 +38,8 @@
         "//Dockerfile$/"
       ],
       "matchStrings": [
-        "#\\s*renovate:\\s*datasource=repology depName=(?<depName>[/_]+)_(?<currentValue>[\\d_]+)/",
-        "#\\s*renovate:\\s*datasource=repology depName=(?<depName>[/_]+)_(?<currentValue>[\\d_]+)/"
+        "#\\s*renovate:\\s*datasource=repology depName=(?<depName>[^_]+)_(?<currentValue>[\\d_]+)/",
+        "#\\s*renovate:\\s*datasource=repology depName=(?<depName>[^_]+)_(?<currentValue>[\\d_]+)/"
       ],
       "currentValueTemplate": "{{{replace '_' '.' currentValue}}}"
     }
