@@ -40,10 +40,11 @@
         "//Dockerfile$/"
       ],
       "matchStrings": [
-        "#\\s*renovate:\\s*datasource=(\\S+) depName=(?<depName>[^_]+)_(?<currentValue>[\\d_]+)/"
+        "#\\s*renovate:\\s*datasource=repology depName=(?<depName>[^_]+)_(?<currentValue>[\\d_]+)\\/"
       ],
-      "currentValueTemplate": "{{{replace '_' '.' currentValue}}}",
-      "datasourceTemplate": "endoflife-date"
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "regex:^(?<major>\\d+)_(?<minor>\\d+)$",
+      "extractVersionTemplate": "^(?<major>\\d+).(?<minor>\\d+).(?<patch>\\d+)$"
     }
   ],
   "packageRules": [
