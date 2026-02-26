@@ -23,8 +23,8 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "//config\\.yaml$/",
-        "//Dockerfile$/"
+        "*/config.yaml",
+        "*/Dockerfile"
       ],
       "matchStrings": [
         "^#\\s*renovate:\\s*datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>.*?))?\\r?\\nversion:\\s+(?<currentValue>\\S+)-\\d+$",
@@ -36,8 +36,8 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "//config\\.yaml$/",
-        "//Dockerfile$/"
+        "*/config.yaml",
+        "*/Dockerfile"
       ],
       "matchStrings": [
         "#\\s*renovate:\\s*datasource=repology depName=(?<depName>[^_]+)_(?<currentValue>[\\d_]+)\\/"
