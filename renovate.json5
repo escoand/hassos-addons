@@ -8,17 +8,6 @@
     ":separateMajorReleases"
   ],
   "customManagers": [
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "*/build.yaml"
-      ],
-      "matchStrings": [
-        "docker.io/(arm32v7|arm64v8|amd64|i386)/(?<depName>\\S+):(?<currentValue>\\S+)\\n"
-      ],
-      "datasourceTemplate": "docker",
-      "versioningTemplate": "docker"
-    },
     // Repology dependencies
     {
       "customType": "regex",
