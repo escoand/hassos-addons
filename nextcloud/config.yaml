@@ -1,5 +1,5 @@
 name: Nextcloud
-# renovate: datasource=docker depName=nextcloud
+# renovate: datasource=docker depName=docker.io/nextcloud
 version: 33.0.2-0
 slug: nextcloud
 description: A safe home for all your data

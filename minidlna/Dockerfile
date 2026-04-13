@@ -1,5 +1,4 @@
-ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM ghcr.io/home-assistant/base:3.23
 
 # renovate: datasource=repology depName=alpine_3_23/minidlna versioning=loose
 ENV MINIDLNA_VERSION=1.3.3-r3

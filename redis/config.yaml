@@ -1,5 +1,5 @@
 name: Redis
-# renovate: datasource=docker depName=docker.io/library/redis
+# renovate: datasource=docker depName=docker.io/redis
 version: 8.6.2-0
 slug: redis
 description: The open source in-memory data store

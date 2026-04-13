@@ -1,5 +1,4 @@
-ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM docker.io/nextcloud:33.0.2
 
 RUN apt-get update && apt-get install -y \
     jq sudo webhook \
