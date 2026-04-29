@@ -2,13 +2,12 @@
 
 set -eo pipefail
 
+IMAGE=local/amd64-addon-nanobot
 VERSION=$(grep ^version: config.yaml | cut -d" " -f2)
 BASEVERSION=${VERSION%-*}
-TMPDIR=$(mktemp -d)
 
-# shellcheck disable=SC2064
-trap "rm -rf '$TMPDIR'" EXIT
+docker build --tag "local/nanobot:upstream" "https://github.com/HKUDS/nanobot.git#v$BASEVERSION"
 
-git clone --branch "v$BASEVERSION" --depth 1 git@github.com:HKUDS/nanobot.git "$TMPDIR"
+docker build --tag "$IMAGE:$VERSION" .
 
-docker build --tag "local/amd64-addon-nanobot:$VERSION" .
+docker rmi "local/nanobot:upstream"

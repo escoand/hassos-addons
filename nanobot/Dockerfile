@@ -1,4 +1,4 @@
-FROM local/nanobot-upstream
+FROM local/nanobot:upstream
 
 USER root
 
