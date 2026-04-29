@@ -1,0 +1,23 @@
+name: Nanobot
+version: 0.1.5.post3-2
+slug: nanobot
+description: Ultra-Lightweight Personal AI Agent
+arch:
+  - amd64
+url: https://nanobot.wiki/
+map:
+  - addon_config:rw
+  - data
+ports:
+  5173/tcp: 5173
+  8765/tcp: 8765
+options:
+  instance:
+  - directory: default
+    environment: []
+schema:
+  instance:
+  - directory: str
+    environment:
+    - variable: str
+      value: str
