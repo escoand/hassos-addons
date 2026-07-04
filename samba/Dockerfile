@@ -1,4 +1,4 @@
-FROM ghcr.io/home-assistant/base:3.23
+FROM ghcr.io/home-assistant/base:3.24
 
 # renovate: datasource=repology depName=alpine_3_23/samba-server versioning=loose
 ENV SAMBA_VERSION=4.22.10-r0
