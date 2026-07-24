@@ -1,4 +1,4 @@
-FROM docker.io/nextcloud:34.0.1
+FROM docker.io/nextcloud:34.0.2
 
 RUN apt-get update && apt-get install -y \
     jq sudo webhook \
