@@ -1,6 +1,6 @@
 name: Restic
 # renovate: datasource=docker depName=docker.io/mazzolino/restic
-version: 1.8.2-2
+version: 1.8.2-3
 slug: restic
 description: fast and secure backup program
 arch:
@@ -20,6 +20,7 @@ options:
   backup_cron: 0 0 2 * * *
   restic_repository: b2:...:/backups
   restic_password: null
+  restic_check_args: null
   restic_backup_args: >-
     --exclude '*.log'
     --exclude 'appdata_*'
@@ -35,6 +36,7 @@ schema:
   backup_cron: str
   restic_repository: str
   restic_password: password
+  restic_check_args: str?
   restic_backup_args: str?
   restic_forget_args: str?
   b2_account_id: str?

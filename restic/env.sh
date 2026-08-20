@@ -8,6 +8,7 @@ export RESTIC_BACKUP_SOURCES=$(jq -r '.backup_dirs' $CONFIG_PATH)
 export BACKUP_CRON=$(jq -r '.backup_cron' $CONFIG_PATH)
 export RESTIC_REPOSITORY=$(jq -r '.restic_repository' $CONFIG_PATH)
 export RESTIC_PASSWORD=$(jq -r '.restic_password' $CONFIG_PATH)
+export RESTIC_CHECK_ARGS=$(jq -r '.restic_check_args // empty' $CONFIG_PATH)
 export RESTIC_BACKUP_ARGS=$(jq -r '.restic_backup_args // empty' $CONFIG_PATH)
 export RESTIC_FORGET_ARGS=$(jq -r '.restic_forget_args // empty' $CONFIG_PATH)
 export RESTIC_PROGRESS_FPS=0.016666
