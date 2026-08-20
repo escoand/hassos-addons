@@ -1,6 +1,6 @@
 name: Redis
 # renovate: datasource=docker depName=docker.io/redis
-version: 8.10.0-0
+version: 8.10.1-0
 slug: redis
 description: The open source in-memory data store
 arch:
