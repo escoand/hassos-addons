@@ -17,4 +17,4 @@ env
 /stats.sh &
 
 # restic main process
-exec /sbin/tini -- /entrypoint
+exec /entrypoint
