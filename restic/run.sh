@@ -17,4 +17,5 @@ env
 /stats.sh &
 
 # restic main process
-exec /entrypoint
+#exec /entrypoint
+sh -x /usr/lib/bin/check
