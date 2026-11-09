@@ -3,7 +3,9 @@
 
 CONFIG_PATH=/data/options.json
 
-# environment variables
+# container environment
+export SKIP_INIT=$(jq -r '.restic_skip_init // empty' $CONFIG_PATH)
+# restic environment
 export RESTIC_BACKUP_SOURCES=$(jq -r '.backup_dirs' $CONFIG_PATH)
 export BACKUP_CRON=$(jq -r '.backup_cron' $CONFIG_PATH)
 export RESTIC_REPOSITORY=$(jq -r '.restic_repository' $CONFIG_PATH)
