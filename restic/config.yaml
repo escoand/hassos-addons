@@ -1,6 +1,6 @@
 name: Restic
 # renovate: datasource=docker depName=docker.io/mazzolino/restic
-version: 1.8.2-9
+version: 1.8.2-10
 slug: restic
 description: fast and secure backup program
 arch:
@@ -16,9 +16,9 @@ map:
   - share
 homeassistant_api: true
 options:
-  backup_dirs: /backup /homeassistant /share
+  backup_dirs: /addon_configs /homeassistant /media /share
   backup_cron: 0 0 2 * * *
-  restic_repository: b2:...:/backups
+  restic_repository: null
   restic_password: null
   restic_check_args: null
   restic_backup_args: >-
@@ -39,7 +39,8 @@ schema:
   restic_check_args: str?
   restic_backup_args: str?
   restic_forget_args: str?
-  restic_skip_init: bool?
+  run_on_startup: bool?
+  skip_init: bool?
   b2_account_id: str?
   b2_account_key: password?
   s3_access_key: str?
