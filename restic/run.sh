@@ -14,4 +14,4 @@ export POST_COMMANDS_INCOMPLETE="curl -sS -XPOST --header 'Authorization: Bearer
 /stats.sh &
 
 # restic main process
-exec /entrypoint
+exec sh -x /entrypoint
