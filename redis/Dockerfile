@@ -1,3 +1,3 @@
-FROM docker.io/redis:8.10.3-alpine
+FROM docker.io/redis:8.12.0-alpine
 
 CMD [ "redis-server", "--appendonly", "no", "--protected-mode", "no", "--save", "" ]
